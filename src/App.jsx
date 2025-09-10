@@ -1,14 +1,23 @@
 import React from 'react'
-import NavBar from './sections/navbar'
+import Hero from './sections/hero'
+import NavBar from './sections/navbar';
+import ServiceSummary from './sections/ServiceSummary';
+import Services from './sections/services';
+import { ReactLenis } from 'lenis/react';
+import About from './sections/About';
+import Works from './sections/Works';
 
 function App() {
   return (
-    <div className='relative w-screen min-h-screen overflow-x-auto'>
+    <ReactLenis root className='relative w-screen min-h-screen overflow-x-auto'>
     <NavBar/> 
-    <section className='min-h-screen' />
-        <section className='min-h-screen' />
+    <Hero/>
+  <ServiceSummary/>
+  <Services/>
+  <About/>
+  <Works />
 
-    </div>
+    </ReactLenis>
   )
 }
 

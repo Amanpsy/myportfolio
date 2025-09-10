@@ -1,68 +1,35 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useRef, useState } from 'react'
-import { socials } from './../constants/index';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+import React, { useEffect, useRef, useState } from "react";
+import { socials } from "../constants";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { Link } from "react-scroll";
 
-
-function NavBar() {
-const navref = useRef(null);
-const contactref = useRef(null);    
-const linksref = useRef([]);
-const topLineRef = useRef(null);
-const bottomLineRef = useRef(null)
+const Navbar = () => {
+  const navRef = useRef(null);
+  const linksRef = useRef([]);
+  const contactRef = useRef(null);
+  const topLineRef = useRef(null);
+  const bottomLineRef = useRef(null);
   const tl = useRef(null);
   const iconTl = useRef(null);
-
-  const [isOpen, setisOpen] = useState(false)
-  const [showBurger, setshowBurger] = useState(false)
-
-  const toggleMenu = () => {
-if (isOpen) {
-  tl.current.reverse();
-  iconTl.current.reverse();
-} else {
-  tl.current.play();
-  iconTl.current.play();
-}
-setisOpen(!isOpen)
-
-
-  }
-
-   useEffect(() => {
-    let lastScrollY = window.scrollY;
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      setshowBurger(currentScrollY <= lastScrollY || currentScrollY < 10);
-
-      lastScrollY = currentScrollY;
-    };
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-
+  const [isOpen, setIsOpen] = useState(false);
+  const [showBurger, setShowBurger] = useState(true);
   useGSAP(() => {
-    gsap.set(navref.current, { xPercent: 100 });
-    gsap.set([linksref.current, contactref.current], {
+    gsap.set(navRef.current, { xPercent: 100 });
+    gsap.set([linksRef.current, contactRef.current], {
       autoAlpha: 0,
       x: -20,
     });
 
     tl.current = gsap
       .timeline({ paused: true })
-      .to(navref.current, {
+      .to(navRef.current, {
         xPercent: 0,
         duration: 1,
         ease: "power3.out",
       })
       .to(
-        linksref.current,
+        linksRef.current,
         {
           autoAlpha: 1,
           x: 0,
@@ -73,7 +40,7 @@ setisOpen(!isOpen)
         "<"
       )
       .to(
-        contactref.current,
+        contactRef.current,
         {
           autoAlpha: 1,
           x: 0,
@@ -102,23 +69,57 @@ setisOpen(!isOpen)
         "<"
       );
   }, []);
-  return (
-<>
-<nav ref={navref}
-        className="fixed z-50 flex flex-col justify-between w-full h-full px-10 uppercase bg-black text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2"
-    >
-        <div className="flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl">
-    {
-        ['home', 'services', 'about','work', 'contact'].map((section, index) => (
-            <div key={index} ref={el => linksref.current[index] = el} className='overflow-hidden'> 
-            <a className='transition-all duration-300 cursor-pointer  hover:text-white'></a>
-            {section}
-            </div>
-        ))
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      setShowBurger(currentScrollY <= lastScrollY || currentScrollY < 10);
+
+      lastScrollY = currentScrollY;
+    };
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const toggleMenu = () => {
+    if (isOpen) {
+      tl.current.reverse();
+      iconTl.current.reverse();
+    } else {
+      tl.current.play();
+      iconTl.current.play();
     }
-    </div>
-   <div
-          ref={contactref}
+    setIsOpen(!isOpen);
+  };
+  return (
+    <>
+      <nav
+        ref={navRef}
+        className="fixed z-50 flex flex-col justify-between w-full h-full px-10 uppercase bg-black text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2"
+      >
+        <div className="flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl">
+          {["Home", "Services", "About", "Work", "Contact"].map(
+            (section, index) => (
+              <div key={index} ref={(el) => (linksRef.current[index] = el)}>
+                <Link
+                  className="transition-all duration-300 cursor-pointer hover:text-white"
+                  to={`${section}`}
+                  smooth
+                  offset={0}
+                  duration={2000}
+                >
+                  {section}
+                </Link>
+              </div>
+            )
+          )}
+        </div>
+        <div
+          ref={contactRef}
           className="flex flex-col flex-wrap justify-between gap-8 md:flex-row"
         >
           <div className="font-light">
@@ -144,16 +145,17 @@ setisOpen(!isOpen)
             </div>
           </div>
         </div>
-    
-    </nav>
-    <div  onClick={toggleMenu}
-     style={
+      </nav>
+      <div
+        className="fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10"
+        onClick={toggleMenu}
+        style={
           showBurger
             ? { clipPath: "circle(50% at 50% 50%)" }
             : { clipPath: "circle(0% at 50% 50%)" }
         }
-     className='fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:20 top-4 right-10'>
-   <span
+      >
+        <span
           ref={topLineRef}
           className="block w-8 h-0.5 bg-white rounded-full origin-center"
         ></span>
@@ -161,10 +163,9 @@ setisOpen(!isOpen)
           ref={bottomLineRef}
           className="block w-8 h-0.5 bg-white rounded-full origin-center"
         ></span>
-    </div>
+      </div>
+    </>
+  );
+};
 
-</>
-  )
-}
-
-export default NavBar
+export default Navbar;

@@ -4,76 +4,88 @@ export const servicesData = [
   {
     title: "Frontend Development",
     description:
-      "I specialize in building high-performance, intuitive, and responsive UIs that scale. From dashboards to real-time data visualizations, I ensure seamless user experiences with modern frameworks.",
+"I craft high-performance, intuitive, and visually stunning UIs that don’t just look good—they feel effortless to use. From dynamic dashboards to real-time data visualizations, I turn complex information into seamless, interactive experiences powered by modern frameworks.", 
+   items: [
+    {
+      title: "React Ecosystem (React, Next.js, Redux, TypeScript, TailwindCSS, GSAP, Jotai)",
+      description: "",
+    },
+    {
+      title: "Real-time Visualization (Leaflet, PIXI.js, Charts, Maps)",
+      description: "",
+    },
+    {
+      title: "Responsive & Pixel Perfect (Cross-device compatibility, animations, HTML5, CSS3, Flexbox, Grid, Figma to Code)",
+      description: "" ,
+    },
+    {
+      title: "Performance Engineering (Code-splitting, Lazy loading, Memoization, Lighthouse optimization)",
+      description: "",
+    },
+    {
+      title: "Accessibility & Standards (WCAG compliance, ARIA roles, Semantic HTML)",
+      description: "",
+    },
+    {
+      title: "Testing & Quality (Jest, React Testing Library, Cypress, Storybook)",
+      description: "",
+    },
+    {
+      title: "Agile & Impact-driven Development (SCRUM, CI/CD workflows, rapid prototyping)",
+      description: "",
+    },
+  ],
+  },
+  {
+    title: "Backend & API Development",
+    description:
+      "I design APIs and backend logic to support complex systems. My focus is on reliability and performance at scale.",
     items: [
       {
-        title: "React Ecosystem",
-        description: "(React, Next.js, Redux, TypeScript, TailwindCSS)",
+        title: "Backend Engineering (Node.js, Express, REST APIs, WebSockets)",
+        description: "",
       },
       {
-        title: "Real-time Visualization",
-        description: "(Leaflet, PIXI.js, Charts, Maps)",
+        title: "Database Design (MongoDB, PostgreSQL basics, Query Optimization)",
+        description: "",
       },
       {
-        title: "Responsive & Pixel Perfect",
-        description: "(Cross-device compatibility, animations, UI polish)",
+        title: "Authentication & Security (JWT, OAuth, Role-based Access)",
+        description: "",
       },
     ],
   },
   {
-    title: "FullStack & API Development",
+    title: "Deployment & Optimization",
     description:
-      "Beyond frontend, I design robust APIs and backend logic to support complex systems. From Node.js microservices to data pipelines, I bring reliability to every layer.",
+      "I deploy and maintain scalable applications, optimizing performance for better user experiences.",
     items: [
       {
-        title: "Backend Engineering",
-        description: "(Node.js, Express, REST APIs, WebSockets, Node-RED)",
+        title: "Deployment (Docker, Vercel, Netlify, Firebase Hosting) ",
+        description: "",
       },
       {
-        title: "Database Design",
-        description: "(MongoDB, PostgreSQL, SQL Optimization)",
-      },
-      {
-        title: "Authentication & Security",
-        description: "(JWT, OAuth, Role-based Access, Best Practices)",
+        title: "Performance Tuning (Caching, Compression, Lighthouse 90+ Scores)",
+        description: "",
       },
     ],
   },
   {
-    title: "Cloud, DevOps & Automation",
+    title: "AI, OSINT & Automation",
     description:
-      "I deploy, optimize, and maintain scalable applications with cloud platforms and automation pipelines.",
+      "Exploring new technologies—integrating AI APIs, OSINT tools, and Python scripts for real-world automation.",
     items: [
       {
-        title: "CI/CD Pipelines",
-        description: "(GitHub Actions, Docker, Kubernetes basics)",
+        title: "AI Integrations (Gemini API, Hugging-Face Integration , LLM-powered features)",
+        description: "",
       },
       {
-        title: "Cloud & Hosting",
-        description: "(AWS, Vercel, Render, Netlify, Firebase)",
+        title: "OSINT Systems (Node-RED automation, data gathering pipelines)",
+        description: "",
       },
       {
-        title: "Performance Tuning",
-        description: "(Caching, Compression, Lighthouse 90+ Scores)",
-      },
-    ],
-  },
-  {
-    title: "AI, OSINT & Emerging Tech",
-    description:
-      "Exploring the frontier of technology—integrating AI APIs, OSINT tools, and advanced toolkits for real-world applications.",
-    items: [
-      {
-        title: "AI Integrations",
-        description: "(Gemini API, LangChain, LLM-powered features)",
-      },
-      {
-        title: "OSINT Systems",
-        description: "(Node-RED automation, data gathering pipelines)",
-      },
-      {
-        title: "Python Tooling",
-        description: "(Augment Toolkit, data parsing, automation scripts)",
+        title: "Python Tooling (Data parsing, automation scripts, Augment Toolkit)",
+        description: "",
       },
     ],
   },
@@ -176,12 +188,12 @@ export const projects = [
     bgImage: "/assets/backgrounds/code.jpg",
     frameworks: [
       { id: 1, name: "Python" },
-      { id: 2, name: "Augment Toolkit" },
+      { id: 2, name: "Automation Scripts" },
     ],
   },
 ];
 
 export const socials = [
-  { name: "LinkedIn", href: "www.linkedin.com/in/aman-kumar-6b7a64194" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/aman-kumar-6b7a64194" },
   { name: "GitHub", href: "https://github.com/aman" },
 ];
