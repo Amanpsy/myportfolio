@@ -94,54 +94,11 @@ export const servicesData = [
 export const projects = [
   {
     id: 1,
-    name: "NavDrishti",
-    description:
-      "A real-time maritime intelligence system with interactive maps, anomaly detection overlays, and dynamic filters for Indian coastal security.",
-    href: "",
-    image: "/assets/projects/navdrishti.jpg",
-    bgImage: "/assets/backgrounds/map.jpg",
-    frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "Leaflet" },
-      { id: 3, name: "Pixi.js" },
-      { id: 4, name: "Tailwind CSS" },
-    ],
-  },
-  {
-    id: 2,
-    name: "Deepdarshak",
-    description:
-      "Visualization platform handling 30,000+ ships with search, anomaly detection, and real-time updates—built for high-performance maritime tracking.",
-    href: "",
-    image: "/assets/projects/deepdarshak.jpg",
-    bgImage: "/assets/backgrounds/ocean.jpg",
-    frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "Debouncing Search" },
-      { id: 3, name: "Charts & Tables" },
-    ],
-  },
-  {
-    id: 3,
-    name: "OSINT Project",
-    description:
-      "Developed backend data automation using Node-RED and JavaScript for open-source intelligence workflows.",
-    href: "",
-    image: "/assets/projects/osint.jpg",
-    bgImage: "/assets/backgrounds/terminal.jpg",
-    frameworks: [
-      { id: 1, name: "Node-RED" },
-      { id: 2, name: "JavaScript" },
-      { id: 3, name: "MongoDB" },
-    ],
-  },
-  {
-    id: 4,
     name: "Sensai",
     description:
       "A full-stack Next.js app integrating authentication, APIs, and responsive UI—bridging backend and frontend seamlessly.",
-    href: "",
-    image: "/assets/projects/sensai.jpg",
+    link: "https://sensaiproject-rust.vercel.app/",   // ✅ changed from href
+    image: "/images/sensai.png",
     bgImage: "/assets/backgrounds/gradient.jpg",
     frameworks: [
       { id: 1, name: "Next.js" },
@@ -151,12 +108,12 @@ export const projects = [
     ],
   },
   {
-    id: 5,
+    id: 2,
     name: "Crypto Sleuth",
     description:
       "A React-based crypto analytics dashboard designed to track, filter, and analyze market behavior with a focus on security and insights.",
-    href: "",
-    image: "/assets/projects/crypto-sleuth.jpg",
+    link: "https://cryptobyaman.netlify.app",  // ✅ changed from href
+    image: "/images/crypto.png",
     bgImage: "/assets/backgrounds/dark.jpg",
     frameworks: [
       { id: 1, name: "React" },
@@ -165,33 +122,21 @@ export const projects = [
     ],
   },
   {
-    id: 6,
+    id: 3,
     name: "Gemini Clone",
     description:
       "A frontend project integrating Google's Gemini API for conversational AI—designed with a clean and interactive UI.",
-    href: "",
-    image: "/assets/projects/gemini-clone.jpg",
-    bgImage: "/assets/backgrounds/futuristic.jpg",
+    link: "https://geminibyaman.netlify.app",   // ✅ changed from href
+    image: "/images/gemini.png",
+    bgImage: "/assets/backgrounds/blanket.jpg",
     frameworks: [
       { id: 1, name: "React" },
       { id: 2, name: "Gemini API" },
       { id: 3, name: "Tailwind CSS" },
     ],
   },
-  {
-    id: 7,
-    name: "Python Automation Toolkit",
-    description:
-      "Implemented Python-based automation workflows and augment toolkit for parsing, analysis, and enhancing productivity.",
-    href: "",
-    image: "/assets/projects/python-toolkit.jpg",
-    bgImage: "/assets/backgrounds/code.jpg",
-    frameworks: [
-      { id: 1, name: "Python" },
-      { id: 2, name: "Automation Scripts" },
-    ],
-  },
 ];
+
 
 export const socials = [
   { name: "LinkedIn", href: "https://www.linkedin.com/in/aman-kumar-6b7a64194" },
