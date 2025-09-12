@@ -1,8 +1,8 @@
 import { useRef } from "react";
-import AnimatedHeaderSection from "../components/animatedHeaderSection";
 import { AnimatedTextLines } from "../components/AnimatedTextLines";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import AnimatedHeaderSection from './../components/AnimatedHeaderSection';
 
 const About = () => {
     const text = `Passionate about crafting robust, scalable web applications that drive business growth from prototype to production.`
