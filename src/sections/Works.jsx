@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
+import AnimatedHeaderSection from "../components/animatedHeaderSection";
 import { projects } from "../constants";
 import { useRef, useState } from "react";
 import gsap from "gsap";

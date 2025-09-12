@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Environment, Float, Lightformer } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
-import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
+import AnimatedHeaderSection from "../components/animatedHeaderSection";
 import { Planet } from "../components/planet";
 const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
