@@ -43,7 +43,7 @@ When I’m not shipping, you’ll probably find me:
     });
   });
   return (
-    <section id="about" className="min-h-screen bg-black rounded-b-4xl">
+    <section id="About" className="min-h-screen bg-black rounded-b-4xl">
       <AnimatedHeaderSection
         subTitle={"Cod with purpose, Built to scale"}
         title={"About"}

@@ -97,7 +97,7 @@ export const projects = [
     name: "Sensai",
     description:
       "A full-stack Next.js app integrating authentication, APIs, and responsive UI—bridging backend and frontend seamlessly.",
-    link: "https://sensaiproject-rust.vercel.app/",   // ✅ changed from href
+    link: "https://sensaiproject-rust.vercel.app/",
     image: "/images/sensai.png",
     bgImage: "/assets/backgrounds/gradient.jpg",
     frameworks: [
@@ -112,7 +112,7 @@ export const projects = [
     name: "Crypto Sleuth",
     description:
       "A React-based crypto analytics dashboard designed to track, filter, and analyze market behavior with a focus on security and insights.",
-    link: "https://cryptobyaman.netlify.app",  // ✅ changed from href
+    link: "https://cryptobyaman.netlify.app",
     image: "/images/crypto.png",
     bgImage: "/assets/backgrounds/dark.jpg",
     frameworks: [
@@ -126,7 +126,7 @@ export const projects = [
     name: "Gemini Clone",
     description:
       "A frontend project integrating Google's Gemini API for conversational AI—designed with a clean and interactive UI.",
-    link: "https://geminibyaman.netlify.app",   // ✅ changed from href
+    link: "https://geminibyaman.netlify.app",
     image: "/images/gemini.png",
     bgImage: "/assets/backgrounds/blanket.jpg",
     frameworks: [
@@ -135,10 +135,52 @@ export const projects = [
       { id: 3, name: "Tailwind CSS" },
     ],
   },
+  {
+    id: 4,
+    name: "NavDrishti",
+    description:
+      "A real-time maritime intelligence system with interactive maps, anomaly detection overlays, and dynamic filters for Indian coastal security.",
+    link: "",
+    image: "/images/common.png",
+    bgImage: "/assets/backgrounds/map.jpg",
+    frameworks: [
+      { id: 1, name: "React" },
+      { id: 2, name: "Leaflet" },
+      { id: 3, name: "Pixi.js" },
+      { id: 4, name: "Tailwind CSS" },
+    ],
+  },
+  {
+    id: 5,
+    name: "Deepdarshak",
+    description:
+      "Visualization platform handling 30,000+ ships with search, anomaly detection, and real-time updates—built for high-performance maritime tracking.",
+    link: "",
+    image: "/images/common.png",
+    bgImage: "/assets/backgrounds/ocean.jpg",
+    frameworks: [
+      { id: 1, name: "React" },
+      { id: 2, name: "Debouncing Search" },
+      { id: 3, name: "Charts & Tables" },
+    ],
+  },
+  {
+    id: 6,
+    name: "Python Automation Toolkit",
+    description:
+      "Implemented Python-based automation workflows and augment toolkit for parsing, analysis, and enhancing productivity.",
+    link: "",
+    image: "/images/common.png",
+    bgImage: "/assets/backgrounds/code.jpg",
+    frameworks: [
+      { id: 1, name: "Python" },
+      { id: 2, name: "Automation Scripts" },
+    ],
+  },
 ];
+
 
 
 export const socials = [
   { name: "LinkedIn", href: "https://www.linkedin.com/in/aman-kumar-6b7a64194" },
-  { name: "GitHub", href: "https://github.com/aman" },
 ];
