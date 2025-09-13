@@ -1,8 +1,8 @@
 import { useGSAP } from "@gsap/react";
+import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 import { socials } from "../constants";
 import gsap from "gsap";
 import Marque from './../components/Marque';
-import AnimatedHeaderSection from './../components/AnimatedHeaderSection';
 
 const Contact = () => {
   const text = `Got a question, how or project Idea?
