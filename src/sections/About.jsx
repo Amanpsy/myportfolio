@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import AnimatedHeaderSection from "../components/animatedHeaderSection.jsx";
+import AnimatedHeaderSection from "../components/AnimatedHeaderSection.jsx";
 import AnimatedTextLines from "../components/animatedTextLines.jsx";
 
 

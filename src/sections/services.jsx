@@ -3,7 +3,7 @@ import { servicesData } from "../constants";
 import { useMediaQuery } from "react-responsive";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import AnimatedHeaderSection from "../components/animatedHeaderSection.jsx";
+import AnimatedHeaderSection from "../components/AnimatedHeaderSection.jsx";
 
 
 

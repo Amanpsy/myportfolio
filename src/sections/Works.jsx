@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import toast from 'react-hot-toast';
-import AnimatedHeaderSection from "../components/animatedHeaderSection.jsx";
+import AnimatedHeaderSection from "../components/AnimatedHeaderSection.jsx";
 
 
 
