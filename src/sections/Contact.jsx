@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
+import AnimatedHeaderSection from "../components/animatedHeaderSection.jsx";
 import { socials } from "../constants";
 import gsap from "gsap";
 import Marque from './../components/Marque';

@@ -3,7 +3,10 @@ import { servicesData } from "../constants";
 import { useMediaQuery } from "react-responsive";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import AnimatedHeaderSection from './../components/AnimatedHeaderSection';
+import AnimatedHeaderSection from "../components/animatedHeaderSection.jsx";
+
+
+
 const Services = () => {
   const text = `I build secure, high-performance full-stack apps
     with smooth UX to drive growth 

@@ -36,7 +36,7 @@ const items = ['Innovation', 'Precision', 'Excellence', 'Collaboration', 'Integr
     </div>
     
     
-    <Marque items={items2} reverse={true} className='text-black bg-transparent border-y-2' iconClassName='stroke-gold stoke-2 text-primary' icon='material-symbols-light:square'/>
+    <Marque items={items2} className='text-black bg-transparent border-y-2' iconClassName='stroke-gold stoke-2 text-primary' icon='material-symbols-light:square'/>
     
     </section>
   )

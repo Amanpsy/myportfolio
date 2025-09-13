@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import toast from 'react-hot-toast';
-import AnimatedHeaderSection from './../components/AnimatedHeaderSection';
+import AnimatedHeaderSection from "../components/animatedHeaderSection.jsx";
 
 const Works = () => {
   const overlayRefs = useRef([]);
@@ -102,7 +102,7 @@ const Works = () => {
 
   return (
     <section id="Work" className="flex flex-col min-h-screen">
-      <AnimatedHeaderSection        subTitle={"Logic meets Aesthetics, Seamlessly"}
+      <AnimatedHeaderSection       subTitle={"Logic meets Aesthetics, Seamlessly"}
         title={"Works"}
         text={text}
         textColor={"text-black"}
