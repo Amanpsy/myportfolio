@@ -2,8 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { Environment, Float, Lightformer } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
 import { Planet } from "../components/planet";
-import AnimatedHeaderSection from "../components/animatedHeaderSection.jsx";
-
+import AnimatedHeaderSection from '../components/animatedHeaderSection.jsx';
 const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
   const text = `I help growing brands and startups gain an
