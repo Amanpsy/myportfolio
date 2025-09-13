@@ -4,7 +4,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Link } from "react-scroll";
 
+
+
+
 const Navbar = () => {
+
+
+
   const navRef = useRef(null);
   const linksRef = useRef([]);
   const contactRef = useRef(null);

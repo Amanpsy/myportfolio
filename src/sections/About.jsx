@@ -4,7 +4,11 @@ import gsap from "gsap";
 import AnimatedHeaderSection from "../components/animatedHeaderSection.jsx";
 import AnimatedTextLines from "../components/animatedTextLines.jsx";
 
+
+
 const About = () => {
+
+
     const text = `Passionate about crafting robust, scalable web applications that drive business growth from prototype to production.`
 
 const aboutText = `I’m a Frontend Developer who loves transforming complex ideas into seamless digital experiences. 

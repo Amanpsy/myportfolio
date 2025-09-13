@@ -3,7 +3,11 @@ import Marque from '../components/Marque';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
+
+
 function ContactSummary() {
+
+
     const containerRef = React.useRef(null);
 const items2= ['contact us ', 'contact us ', 'contact us ', 'contact us ', 'contact us ', 'contact us ', ];
 

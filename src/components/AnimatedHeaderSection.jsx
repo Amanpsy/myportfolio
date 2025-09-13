@@ -4,6 +4,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import AnimatedTextLines from "./animatedTextLines.jsx";
 
+
+
 const AnimatedHeaderSection = ({
   subTitle,
   title,

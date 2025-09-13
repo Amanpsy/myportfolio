@@ -3,7 +3,11 @@ import { Icon } from '@iconify/react/dist/iconify.js';
 import gsap from 'gsap';
 import { Observer } from 'gsap/all';
 import React, { use, useEffect, useRef } from 'react'
+
+
 gsap.registerPlugin(Observer)
+
+
 function Marque({items, className= 'text-white bg-black', icon= "mdi:star-four-points", iconClassName= "", reverse = false}) {
 
     const containerRef = React.useRef(null);

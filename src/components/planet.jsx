@@ -7,7 +7,11 @@ import { useGLTF } from "@react-three/drei";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
+
+
 export function Planet(props) {
+
+
   const shapeContainer = useRef(null);
   const shperesContainer = useRef(null);
   const ringContainer = useRef(null);

@@ -4,6 +4,8 @@ import { socials } from "../constants";
 import gsap from "gsap";
 import Marque from './../components/Marque';
 
+
+
 const Contact = () => {
   const text = `Got a question, how or project Idea?
     WE’D love to hear from you and discus further!`;
