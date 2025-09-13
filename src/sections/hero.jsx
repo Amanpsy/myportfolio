@@ -13,7 +13,7 @@ const Hero = () => {
 
   const isMobile = useMediaQuery({ maxWidth: 853 });
   const text = `I help growing brands and startups gain an
-unfair advantage through craftingyy
+unfair advantage through craftingy
 results driven webs/apps`;
   return (
     <section id="Home" className="flex flex-col justify-end min-h-screen">
