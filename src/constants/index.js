@@ -97,7 +97,7 @@ export const projects = [
     name: "Sensai",
     description:
       "A full-stack Next.js app integrating authentication, APIs, and responsive UI—bridging backend and frontend seamlessly.",
-    link: "https://sensaiproject-rust.vercel.app/",
+    link: "https://sensaiproject-rust.vercel.app",
     image: "/images/sensai.png",
     bgImage: "/assets/backgrounds/map.jpg",
     frameworks: [
@@ -126,7 +126,7 @@ export const projects = [
     name: "Gemini Clone",
     description:
       "A frontend project integrating Google's Gemini API for conversational AI—designed with a clean and interactive UI.",
-    link: "https://geminibyaman.netlify.app",
+    link: "https://new-gemini-lovat.vercel.app/",
     image: "/images/gemini.png",
     bgImage: "/assets/backgrounds/map.jpg",
     frameworks: [
