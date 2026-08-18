@@ -93,13 +93,39 @@ export const servicesData = [
 
 export const projects = [
   {
+    id: 0,
+    name: "Platonix",
+    description:
+      "Worked as a full-stack developer on Platonix, an OTT and real-time meeting platform built with React, TypeScript, Node.js, and AWS. Contributed to authentication with Cognito, live meetings with Amazon Chime SDK, streaming workflows with Amazon IVS, and cloud-backed product features across the platform.",
+    link: "",
+    image: "",
+    bgImage: "/assets/backgrounds/map.jpg",
+    year: "Current",
+    outcome: "Built features across streaming, meetings, auth, APIs, and serverless AWS services in a real-time event-driven architecture.",
+    frameworks: [
+      { id: 1, name: "React" },
+      { id: 2, name: "TypeScript" },
+      { id: 3, name: "Node.js" },
+      { id: 4, name: "AWS Amplify" },
+      { id: 5, name: "Cognito" },
+      { id: 6, name: "Amazon Chime SDK" },
+      { id: 7, name: "Amazon IVS" },
+      { id: 8, name: "PostgreSQL" },
+      { id: 9, name: "DynamoDB" },
+      { id: 10, name: "AWS CDK" },
+      { id: 11, name: "Serverless" },
+    ],
+  },
+  {
     id: 1,
     name: "Sensai",
     description:
-      "A full-stack Next.js app integrating authentication, APIs, and responsive UI—bridging backend and frontend seamlessly.",
+      "A full-stack Next.js product that blends authentication, API integrations, and a polished interface into a fast everyday workflow.",
     link: "https://sensaiproject-rust.vercel.app",
     image: "/images/sensai.png",
     bgImage: "/assets/backgrounds/map.jpg",
+    year: "2026",
+    outcome: "Built a smoother end-to-end experience across auth, data flow, and UI states.",
     frameworks: [
       { id: 1, name: "Next.js" },
       { id: 2, name: "React" },
@@ -111,10 +137,12 @@ export const projects = [
     id: 2,
     name: "Crypto Sleuth",
     description:
-      "A React-based crypto analytics dashboard designed to track, filter, and analyze market behavior with a focus on security and insights.",
+      "A crypto analytics dashboard built to help users track trends, filter noise, and make sense of market behavior quickly.",
     link: "https://cryptobyaman.netlify.app",
     image: "/images/crypto.png",
     bgImage: "/assets/backgrounds/map.jpg",
+    year: "2025",
+    outcome: "Turned volatile data into a cleaner, more usable monitoring experience.",
     frameworks: [
       { id: 1, name: "React" },
       { id: 2, name: "REST APIs" },
@@ -125,10 +153,12 @@ export const projects = [
     id: 3,
     name: "Gemini Clone",
     description:
-      "A frontend project integrating Google's Gemini API for conversational AI—designed with a clean and interactive UI.",
+      "A conversational AI interface that focuses on clarity, responsiveness, and familiar interaction patterns around the Gemini API.",
     link: "https://new-gemini-lovat.vercel.app/",
     image: "/images/gemini.png",
     bgImage: "/assets/backgrounds/map.jpg",
+    year: "2025",
+    outcome: "Explored AI UX patterns while keeping the interface lightweight and approachable.",
     frameworks: [
       { id: 1, name: "React" },
       { id: 2, name: "Gemini API" },
@@ -139,10 +169,12 @@ export const projects = [
     id: 4,
     name: "NavDrishti",
     description:
-      "A real-time maritime intelligence system with interactive maps, anomaly detection overlays, and dynamic filters for Indian coastal security.",
+      "A real-time maritime intelligence system with interactive maps, anomaly overlays, and dynamic filters for coastal awareness.",
     link: "",
     image: "/images/common.png",
     bgImage: "/assets/backgrounds/map.jpg",
+    year: "2026",
+    outcome: "Designed for high-density spatial data and fast operational decision-making.",
     frameworks: [
       { id: 1, name: "React" },
       { id: 2, name: "Leaflet" },
@@ -154,10 +186,12 @@ export const projects = [
     id: 5,
     name: "Deepdarshak",
     description:
-      "Visualization platform handling 30,000+ ships with search, anomaly detection, and real-time updates—built for high-performance maritime tracking.",
+      "A large-scale visualization platform handling 30,000+ ships with search, anomaly detection, and live operational updates.",
     link: "",
     image: "/images/common.png",
     bgImage: "/assets/backgrounds/map.jpg",
+    year: "2026",
+    outcome: "Focused on performance, discoverability, and reliable real-time tracking at scale.",
     frameworks: [
       { id: 1, name: "React" },
       { id: 2, name: "Debouncing Search" },
@@ -168,10 +202,12 @@ export const projects = [
     id: 6,
     name: "Python Automation Toolkit",
     description:
-      "Implemented Python-based automation workflows and augment toolkit for parsing, analysis, and enhancing productivity.",
+      "A collection of Python automation workflows for parsing, analysis, repetitive tasks, and productivity-heavy internal tooling.",
     link: "",
     image: "/images/common.png",
     bgImage: "/assets/backgrounds/map.jpg",
+    year: "2024",
+    outcome: "Reduced manual effort through practical scripts and reusable data-processing helpers.",
     frameworks: [
       { id: 1, name: "Python" },
       { id: 2, name: "Automation Scripts" },

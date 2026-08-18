@@ -4,13 +4,9 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Link } from "react-scroll";
 
-
-
+const navItems = ["Home", "Services", "About", "Work", "Contact"];
 
 const Navbar = () => {
-
-
-
   const navRef = useRef(null);
   const linksRef = useRef([]);
   const contactRef = useRef(null);
@@ -20,6 +16,7 @@ const Navbar = () => {
   const iconTl = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [showBurger, setShowBurger] = useState(true);
+
   useGSAP(() => {
     gsap.set(navRef.current, { xPercent: 100 });
     gsap.set([linksRef.current, contactRef.current], {
@@ -91,56 +88,89 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape" && isOpen) {
+        setIsOpen(false);
+        tl.current?.reverse();
+        iconTl.current?.reverse();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
+  const closeMenu = () => {
+    tl.current?.reverse();
+    iconTl.current?.reverse();
+    setIsOpen(false);
+  };
+
   const toggleMenu = () => {
     if (isOpen) {
-      tl.current.reverse();
-      iconTl.current.reverse();
+      closeMenu();
     } else {
-      tl.current.play();
-      iconTl.current.play();
+      tl.current?.play();
+      iconTl.current?.play();
+      setIsOpen(true);
     }
-    setIsOpen(!isOpen);
   };
+
   return (
     <>
       <nav
         ref={navRef}
-        className="fixed z-50 flex flex-col justify-between w-full h-full px-10 uppercase bg-black text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2"
+        aria-hidden={!isOpen}
+        className={`fixed z-50 flex h-full w-full flex-col justify-start gap-y-10 overflow-y-auto bg-black px-10 py-20 uppercase text-white/80 transition-opacity duration-300 md:left-1/2 md:w-1/2 md:justify-between md:py-28 ${
+          isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        }`}
       >
-        <div className="flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl">
-          {["Home", "Services", "About", "Work", "Contact"].map(
-            (section, index) => (
-              <div key={index} ref={(el) => (linksRef.current[index] = el)}>
-                <Link
-                  className="transition-all duration-300 cursor-pointer hover:text-white"
-                  to={`${section}`}
-                  smooth
-                  offset={0}
-                  duration={2000}
-                >
-                  {section}
-                </Link>
-              </div>
-            )
-          )}
+        <div className="flex flex-col gap-y-2 text-[clamp(3.2rem,15vw,5.5rem)] leading-[0.9] md:text-6xl lg:text-8xl">
+          {navItems.map((section, index) => (
+            <div key={section} ref={(el) => (linksRef.current[index] = el)}>
+              <Link
+                className="transition-all duration-300 cursor-pointer hover:text-white"
+                to={section}
+                smooth
+                offset={0}
+                duration={900}
+                onClick={closeMenu}
+              >
+                {section}
+              </Link>
+            </div>
+          ))}
         </div>
         <div
           ref={contactRef}
-          className="flex flex-col flex-wrap justify-between gap-8 md:flex-row"
+          className="mt-6 flex flex-col flex-wrap justify-between gap-8 pb-6 md:mt-0 md:flex-row md:pb-0"
         >
           <div className="font-light">
             <p className="tracking-wider text-white/50">E-mail</p>
-            <p className="text-xl tracking-widest lowercase text-pretty">
+            <a
+              href="mailto:Amankr97111@gmail.com"
+              className="block max-w-full break-all text-lg leading-relaxed tracking-[0.2em] lowercase transition-colors duration-300 hover:text-white md:text-xl"
+            >
               Amankr97111@gmail.com
-            </p>
+            </a>
           </div>
           <div className="font-light">
             <p className="tracking-wider text-white/50">Social Media</p>
             <div className="flex flex-col flex-wrap md:flex-row gap-x-2">
-              {socials.map((social, index) => (
+              {socials.map((social) => (
                 <a
-                  key={index}
+                  key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="text-sm leading-loose tracking-widest uppercase hover:text-white transition-colors duration-300"
                 >
                   {"{ "}
@@ -152,11 +182,14 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <div
-        className="fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10"
+      <button
+        type="button"
+        aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+        aria-expanded={isOpen}
+        className="fixed top-4 right-10 z-50 flex h-14 w-14 flex-col items-center justify-center gap-1 rounded-full bg-black transition-all duration-300 md:h-20 md:w-20"
         onClick={toggleMenu}
         style={
-          showBurger
+          showBurger || isOpen
             ? { clipPath: "circle(50% at 50% 50%)" }
             : { clipPath: "circle(0% at 50% 50%)" }
         }
@@ -169,7 +202,7 @@ const Navbar = () => {
           ref={bottomLineRef}
           className="block w-8 h-0.5 bg-white rounded-full origin-center"
         ></span>
-      </div>
+      </button>
     </>
   );
 };

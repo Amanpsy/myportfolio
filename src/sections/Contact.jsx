@@ -7,14 +7,14 @@ import Marque from './../components/Marque';
 
 
 const Contact = () => {
-  const text = `Got a question, how or project Idea?
-    WE’D love to hear from you and discus further!`;
+  const text = `Got a product idea, redesign, or frontend challenge?
+I’d love to hear what you’re building and where I can help.`;
   const items = [
-    "just imagine,how I code",
-    "just imagine,how I code",
-    "just imagine,how I code",
-    "just imagine,how I code",
-    "just imagine,how I code",
+    "just imagine, how I code",
+    "just imagine, how I code",
+    "just imagine, how I code",
+    "just imagine, how I code",
+    "just imagine, how I code",
   ];
   useGSAP(() => {
     gsap.from(".social-link", {
@@ -47,16 +47,22 @@ const Contact = () => {
             <div className="social-link">
               <h2>E-mail</h2>
               <div className="w-full h-px my-2 bg-white/30" />
-              <p className="text-xl tracking-wider lowercase md:text-2xl lg:text-3xl">
+              <a
+                href="mailto:Amankr97111@gmail.com"
+                className="text-xl tracking-wider lowercase transition-colors duration-200 md:text-2xl lg:text-3xl hover:text-white/80"
+              >
                 Amankr97111@gmail.com
-              </p>
+              </a>
             </div>
             <div className="social-link">
               <h2>Phone</h2>
               <div className="w-full h-px my-2 bg-white/30" />
-              <p className="text-xl lowercase md:text-2xl lg:text-3xl">
+              <a
+                href="tel:+919711189587"
+                className="text-xl lowercase transition-colors duration-200 md:text-2xl lg:text-3xl hover:text-white/80"
+              >
                 +91 9711189587
-              </p>
+              </a>
             </div>
             <div className="social-link">
               <h2>Social Media</h2>
@@ -66,6 +72,8 @@ const Contact = () => {
                   <a
                     key={index}
                     href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
                     className="text-xs leading-loose tracking-wides uppercase md:text-sm hover:text-white/80 transition-colors duration-200"
                   >
                     {"{ "}
@@ -78,7 +86,10 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <Marque items={items} className="text-white bg-transparent" />
+      <Marque
+        items={items}
+        className="text-white bg-transparent border-t border-white/10"
+      />
     </section>
   );
 };

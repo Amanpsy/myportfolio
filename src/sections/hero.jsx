@@ -1,69 +1,68 @@
-import { Canvas } from "@react-three/fiber";
-import { Environment, Float, Lightformer } from "@react-three/drei";
-import { useMediaQuery } from "react-responsive";
-import { Planet } from "../components/planet";
+import { lazy, Suspense } from "react";
+import { Link } from "react-scroll";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection.jsx";
 
-
-
-
+const HeroScene = lazy(() => import("../components/HeroScene.jsx"));
 
 const Hero = () => {
+  const text = `I help founders and product teams turn ambitious ideas
+into polished web experiences that feel fast,
+clear, and built for real growth.`;
 
-
-  const isMobile = useMediaQuery({ maxWidth: 853 });
-  const text = `I help growing brands and startups gain an
-unfair advantage through craftingy
-results driven webs/apps`;
   return (
-    <section id="Home" className="flex flex-col justify-end min-h-screen">
+    <section
+      id="Home"
+      className="relative flex min-h-screen flex-col justify-end overflow-hidden"
+    >
       <AnimatedHeaderSection
         subTitle={"404 No Bugs Found"}
         title={"Aman Kumar"}
         text={text}
         textColor={"text-black"}
       />
+      <div className="px-10 pb-10 md:pb-14">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.25rem] text-black/70 md:text-sm">
+            <span className="rounded-full border border-black/15 bg-white/55 px-4 py-2 backdrop-blur-sm">
+              React / Next.js
+            </span>
+            <span className="rounded-full border border-black/15 bg-white/55 px-4 py-2 backdrop-blur-sm">
+              Performance-first UI
+            </span>
+            <span className="rounded-full border border-black/15 bg-white/55 px-4 py-2 backdrop-blur-sm">
+              Available for freelance
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="Work"
+              smooth
+              duration={900}
+              className="cursor-pointer rounded-full bg-black px-6 py-3 text-sm uppercase tracking-[0.25rem] text-white transition-transform duration-300 hover:-translate-y-0.5"
+            >
+              View selected work
+            </Link>
+            <a
+              href="mailto:Amankr97111@gmail.com"
+              className="rounded-full border border-black/15 bg-white/70 px-6 py-3 text-sm uppercase tracking-[0.25rem] text-black backdrop-blur-sm transition-transform duration-300 hover:-translate-y-0.5"
+            >
+              Start a conversation
+            </a>
+          </div>
+        </div>
+      </div>
       <figure
         className="absolute inset-0 -z-50"
         style={{ width: "100vw", height: "100vh" }}
       >
-        <Canvas
-          shadows
-          camera={{ position: [0, 0, -10], fov: 17.5, near: 1, far: 20 }}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.75),_transparent_40%),radial-gradient(circle_at_20%_70%,_rgba(207,163,85,0.22),_transparent_30%)]" />
+        <Suspense
+          fallback={
+            <div className="h-full w-full bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.9),_rgba(229,229,224,0.4)_35%,_transparent_60%)]" />
+          }
         >
-          <ambientLight intensity={0.5} />
-          <Float speed={0.5}>
-            <Planet scale={isMobile ? 0.7 : 1} />
-          </Float>
-          <Environment resolution={256}>
-            <group rotation={[-Math.PI / 3, 4, 1]}>
-              <Lightformer
-                form={"circle"}
-                intensity={2}
-                position={[0, 5, -9]}
-                scale={10}
-              />
-              <Lightformer
-                form={"circle"}
-                intensity={2}
-                position={[0, 3, 1]}
-                scale={10}
-              />
-              <Lightformer
-                form={"circle"}
-                intensity={2}
-                position={[-5, -1, -1]}
-                scale={10}
-              />
-              <Lightformer
-                form={"circle"}
-                intensity={2}
-                position={[10, 1, 0]}
-                scale={16}
-              />
-            </group>
-          </Environment>
-        </Canvas>
+          <HeroScene />
+        </Suspense>
       </figure>
     </section>
   );

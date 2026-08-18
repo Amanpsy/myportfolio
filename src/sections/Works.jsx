@@ -3,20 +3,17 @@ import { projects } from "../constants";
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection.jsx";
-
-
-
 
 const Works = () => {
   const overlayRefs = useRef([]);
   const previewRef = useRef(null);
 
   const [currentIndex, setCurrentIndex] = useState(null);
-  const text = `Featured projects that have been meticulously
-    crafted with passion to drive
-    results and impact.`;
+  const text = `Selected projects across product interfaces,
+real-time dashboards, and business-focused web apps
+designed to feel sharp and perform under pressure.`;
 
   const mouse = useRef({ x: 0, y: 0 });
   const moveX = useRef(null);
@@ -45,8 +42,20 @@ const Works = () => {
     });
   }, []);
 
+  const handleProjectOpen = (project) => {
+    if (project.link) {
+      window.open(project.link, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    toast("This project is confidential / not available online.", {
+      icon: "⚠️",
+    });
+  };
+
   const handleMouseEnter = (index) => {
     if (window.innerWidth < 768) return;
+    if (!projects[index]?.image) return;
     setCurrentIndex(index);
 
     const el = overlayRefs.current[index];
@@ -75,6 +84,7 @@ const Works = () => {
 
   const handleMouseLeave = (index) => {
     if (window.innerWidth < 768) return;
+    if (!projects[index]?.image) return;
     setCurrentIndex(null);
 
     const el = overlayRefs.current[index];
@@ -105,7 +115,8 @@ const Works = () => {
 
   return (
     <section id="Work" className="flex flex-col min-h-screen">
-      <AnimatedHeaderSection       subTitle={"Logic meets Aesthetics, Seamlessly"}
+      <AnimatedHeaderSection
+        subTitle={"Logic meets aesthetics, seamlessly"}
         title={"Works"}
         text={text}
         textColor={"text-black"}
@@ -116,81 +127,129 @@ const Works = () => {
         onMouseMove={handleMouseMove}
       >
         {projects.map((project, index) => (
-  <div
-    key={project.id}
-    id="project"
-    className="relative flex flex-col gap-1 py-5 cursor-pointer group md:gap-0"
-    onMouseEnter={() => handleMouseEnter(index)}
-    onMouseLeave={() => handleMouseLeave(index)}
-    onClick={() => {
-  if (project.link) {
-    window.open(project.link, "_blank");
-  } else {
-    toast("This project is confidential / not available online.", {icon: '⚠️'});
-  }
-}}
-  >
-    {/* overlay */}
-    <div
-      ref={(el) => {
-        overlayRefs.current[index] = el;
-      }}
-      className="absolute inset-0 hidden md:block duration-200 bg-black -z-10 clip-path"
-    />
+          (() => {
+            const hasPreview = Boolean(project.image);
 
-    {/* title */}
-    <div className="flex justify-between px-10 text-black transition-all duration-500 md:group-hover:px-12 md:group-hover:text-white">
-      <h2 className="lg:text-[32px] text-[26px] leading-none">
-        {project.name}
-      </h2>
-      <Icon
-        icon="lucide:arrow-up-right"
-        className="md:size-6 size-5 hover:scale-110 transition-transform duration-300"
-      />
-    </div>
+            return (
+          <article
+            key={project.id}
+            id="project"
+            className="group relative cursor-pointer py-6"
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={() => handleMouseLeave(index)}
+            onClick={() => handleProjectOpen(project)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                handleProjectOpen(project);
+              }
+            }}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              ref={(el) => {
+                overlayRefs.current[index] = el;
+              }}
+              className={`absolute inset-0 -z-10 hidden duration-200 clip-path md:block ${
+                hasPreview ? "bg-black" : "bg-transparent"
+              }`}
+            />
 
-    {/* divider */}
-    <div className="w-full h-0.5 bg-black/80" />
+            <div
+              className={`grid gap-5 px-10 transition-all duration-500 md:grid-cols-[1.2fr_1fr_auto] md:items-start md:group-hover:px-12 ${
+                hasPreview ? "md:group-hover:text-white" : ""
+              }`}
+            >
+              <div className="space-y-3">
+                <div className="flex items-center justify-between gap-4">
+                  <h2 className="text-[26px] leading-none lg:text-[32px]">
+                    {project.name}
+                  </h2>
+                  <Icon
+                    icon="lucide:arrow-up-right"
+                    className="size-5 transition-transform duration-300 group-hover:scale-110 md:size-6"
+                  />
+                </div>
+                <p
+                  className={`max-w-2xl text-sm leading-relaxed text-black/70 transition-colors duration-500 md:text-base ${
+                    hasPreview ? "md:group-hover:text-white/75" : ""
+                  }`}
+                >
+                  {project.description}
+                </p>
+              </div>
 
-    {/* frameworks */}
-    <div className="flex px-10 text-xs leading-loose uppercase transtion-all duration-500 md:text-sm gap-x-5 md:group-hover:px-12">
-      {project.frameworks.map((framework) => (
-        <p
-          key={framework.id}
-          className="text-black transition-colors duration-500 md:group-hover:text-white"
-        >
-          {framework.name}
-        </p>
-      ))}
-    </div>
+              <div className="flex flex-wrap gap-2 md:justify-end">
+                {project.frameworks.map((framework) => (
+                  <span
+                    key={framework.id}
+                    className={`rounded-full border border-black/10 bg-black/5 px-3 py-1 text-[11px] uppercase tracking-[0.2rem] text-black transition-all duration-500 md:text-xs ${
+                      hasPreview
+                        ? "md:group-hover:border-white/15 md:group-hover:bg-white/8 md:group-hover:text-white"
+                        : ""
+                    }`}
+                  >
+                    {framework.name}
+                  </span>
+                ))}
+              </div>
 
-    {/* mobile preview */}
-    <div className="relative flex items-center justify-center px-10 md:hidden h-[400px]">
-      <img
-        src={project.bgImage}
-        alt={`${project.name}-bg-image`}
-        className="object-cover w-full h-full rounded-md brightness-50"
-      />
-      <img
-        src={project.image}
-        alt={`${project.name}-image`}
-        className="absolute bg-center px-14 rounded-xl"
-      />
-    </div>
-  </div>
-))}
+              <div className="flex items-center md:justify-end">
+                <span
+                  className={`text-xs uppercase tracking-[0.25rem] text-black/55 transition-colors duration-500 md:text-sm ${
+                    hasPreview ? "md:group-hover:text-white/60" : ""
+                  }`}
+                >
+                  {project.link ? "Live project" : "Private case study"}
+                </span>
+              </div>
+            </div>
 
-        {/* desktop Flaoting preview image */}
+            <div className="mt-4 h-px w-full bg-black/80" />
+
+            <div
+              className={`mt-5 flex items-center justify-between gap-4 px-10 text-sm text-black/60 transition-colors duration-500 md:px-12 ${
+                hasPreview ? "md:group-hover:text-white/65" : ""
+              }`}
+            >
+              <p>{project.outcome}</p>
+              <p className="hidden uppercase tracking-[0.2rem] md:block">
+                {project.year}
+              </p>
+            </div>
+
+            {project.image && (
+              <div className="relative mt-5 flex h-[400px] items-center justify-center px-10 md:hidden">
+                <img
+                  src={project.bgImage}
+                  alt={`${project.name} background preview`}
+                  className="h-full w-full rounded-md object-cover brightness-50"
+                />
+                <img
+                  src={project.image}
+                  alt={`${project.name} interface preview`}
+                  className="absolute rounded-xl px-14"
+                />
+              </div>
+            )}
+          </article>
+            );
+          })()
+        ))}
+
         <div
           ref={previewRef}
-          className="fixed -top-2/6 left-0 z-50 overflow-hidden border-8 border-black pointer-events-none w-[960px] md:block hidden opacity-0"
+          className="fixed left-0 top-1/6 z-50 hidden w-[720px] overflow-hidden rounded-[2rem] border border-black/10 bg-white/90 p-3 opacity-0 shadow-2xl backdrop-blur md:block"
         >
-          {currentIndex !== null && (
-            <img
-              src={projects[currentIndex].image}
-              alt="preview"
-              className="object-cover w-full h-full"
-            />
+          {currentIndex !== null && projects[currentIndex]?.image && (
+            <div className="overflow-hidden rounded-[1.4rem]">
+              <img
+                src={projects[currentIndex].image}
+                alt="project preview"
+                className="h-full w-full object-cover"
+              />
+            </div>
           )}
         </div>
       </div>

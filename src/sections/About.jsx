@@ -9,18 +9,15 @@ import AnimatedTextLines from "../components/animatedTextLines.jsx";
 const About = () => {
 
 
-    const text = `Passionate about crafting robust, scalable web applications that drive business growth from prototype to production.`
+const text = `I build thoughtful, scalable web experiences that turn complex ideas into simple, meaningful products.`;
 
-const aboutText = `I’m a Frontend Developer who loves transforming complex ideas into seamless digital experiences. 
-From crafting blazing-fast React interfaces to optimizing performance for scale, I ensure every pixel and interaction feels intentional.  
-My philosophy is simple: clean code, smooth UX, and solutions that empower businesses and users alike.  
+const aboutText = `I’m Aman Kumar, a Frontend Developer focused on building fast, accessible, and reliable digital experiences.
 
-Beyond the screen, I’m a social soul who thrives on good conversations, teamwork, and connecting with people who share big ideas.  
+I work primarily with React, Next.js, and TypeScript, transforming ideas and designs into polished products that are easy to use and built to scale. I care about performance, clean architecture, thoughtful interactions, and the details that make an interface feel effortless.
 
-When I’m not shipping, you’ll probably find me:  
-⚡️ Experimenting with new tools and open-source projects  
-🌍 Exploring new places and capturing moments (sometimes through code, sometimes through a lens)  
-🎶 Losing track of time with music—or gaining clarity with it.`;
+My approach is simple: understand the problem, build with purpose, and continuously improve the experience for both users and businesses.
+
+When I’m not coding, I enjoy exploring new places, discovering music, experimenting with new tools, and connecting with people who are passionate about building meaningful things.`;
 
   const imgRef = useRef(null);
   useGSAP(() => {
@@ -49,7 +46,7 @@ When I’m not shipping, you’ll probably find me:
   return (
     <section id="About" className="min-h-screen bg-black rounded-b-4xl">
       <AnimatedHeaderSection
-        subTitle={"Cod with purpose, Built to scale"}
+        subTitle={"Code with purpose, Built to scale"}
         title={"About"}
         text={text}
         textColor={"text-white"}
