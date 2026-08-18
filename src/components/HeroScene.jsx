@@ -9,12 +9,12 @@ const HeroScene = () => {
 
   return (
     <Canvas
-      dpr={[1, 1.5]}
-      shadows
+      dpr={[1, 1.25]}
+      gl={{ antialias: false, powerPreference: "high-performance" }}
       camera={{ position: [0, 0, -10], fov: 17.5, near: 1, far: 20 }}
     >
       <ambientLight intensity={0.5} />
-      <Environment resolution={256}>
+      <Environment resolution={96}>
         <group rotation={[-Math.PI / 3, 4, 1]}>
           <Lightformer
             form="circle"

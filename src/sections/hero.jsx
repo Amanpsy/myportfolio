@@ -1,8 +1,6 @@
-import { lazy, Suspense } from "react";
 import { Link } from "react-scroll";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection.jsx";
-
-const HeroScene = lazy(() => import("../components/HeroScene.jsx"));
+import HeroScene from "../components/HeroScene.jsx";
 
 const Hero = () => {
   const text = `I help founders and product teams turn ambitious ideas
@@ -56,13 +54,7 @@ clear, and built for real growth.`;
         style={{ width: "100vw", height: "100vh" }}
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.75),_transparent_40%),radial-gradient(circle_at_20%_70%,_rgba(207,163,85,0.22),_transparent_30%)]" />
-        <Suspense
-          fallback={
-            <div className="h-full w-full bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.9),_rgba(229,229,224,0.4)_35%,_transparent_60%)]" />
-          }
-        >
-          <HeroScene />
-        </Suspense>
+        <HeroScene />
       </figure>
     </section>
   );

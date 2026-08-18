@@ -4,8 +4,6 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import AnimatedTextLines from "./animatedTextLines.jsx";
 
-
-
 const AnimatedHeaderSection = ({
   subTitle,
   title,
@@ -15,38 +13,47 @@ const AnimatedHeaderSection = ({
 }) => {
   const contextRef = useRef(null);
   const headerRef = useRef(null);
+  const textBlockRef = useRef(null);
   const shouldSplitTitle = title?.includes(" ");
   const titleParts = shouldSplitTitle ? title.split(" ") : [title];
+
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: withScrollTrigger
-        ? {
+    const timelineConfig = withScrollTrigger
+      ? {
+          scrollTrigger: {
             trigger: contextRef.current,
-          }
-        : undefined,
-    });
-    tl.from(contextRef.current, {
-      y: "50vh",
-      duration: 1,
-      ease: "circ.out",
-    });
-    tl.from(
-      headerRef.current,
+            start: "top 85%",
+          },
+        }
+      : {};
+
+    const tl = gsap.timeline(timelineConfig);
+
+    tl.from(headerRef.current, {
+      autoAlpha: 0,
+      y: withScrollTrigger ? 80 : 36,
+      duration: withScrollTrigger ? 0.9 : 0.65,
+      ease: "power2.out",
+      force3D: true,
+    }).from(
+      textBlockRef.current,
       {
-        opacity: 0,
-        y: "200",
-        duration: 1,
-        ease: "circ.out",
+        autoAlpha: 0,
+        y: withScrollTrigger ? 40 : 20,
+        duration: withScrollTrigger ? 0.75 : 0.5,
+        ease: "power2.out",
+        force3D: true,
       },
-      "<+0.2"
+      withScrollTrigger ? "<+0.1" : "<+0.05"
     );
   }, []);
+
   return (
     <div ref={contextRef}>
       <div style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}>
         <div
           ref={headerRef}
-          className="flex flex-col justify-center gap-12 pt-16 sm:gap-16"
+          className="flex flex-col justify-center gap-12 pt-16 will-change-transform sm:gap-16"
         >
           <p
             className={`text-sm font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}
@@ -64,12 +71,13 @@ const AnimatedHeaderSection = ({
           </div>
         </div>
       </div>
-      <div className={`relative px-10 ${textColor}`}>
+      <div ref={textBlockRef} className={`relative px-10 ${textColor}`}>
         <div className="absolute inset-x-0 border-t-2" />
         <div className="py-12 sm:py-16 text-end ">
           <AnimatedTextLines
             text={text}
             className={`font-light uppercase value-text-responsive ${textColor} `}
+            animated={withScrollTrigger}
           />
         </div>
       </div>
